@@ -8,3 +8,56 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.v-application {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.text-body-1 {
+    font-family: "Playfair Display", serif !important;
+    font-optical-sizing: auto !important;
+    font-size: 2rem !important;
+    line-height: 2.8rem !important;
+    font-style: normal !important;    
+}
+
+.text-body-2 {
+    font-family: "Playfair Display", serif !important;
+    font-optical-sizing: auto !important;
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+    font-style: normal !important;    
+}
+
+.text-h1 {
+    font-family: "Playfair Display", serif !important;
+    font-optical-sizing: auto !important;
+    font-size: 5rem !important;
+    line-height: 5.5rem !important;
+    font-style: normal !important;
+}
+
+.text-h2 {
+    font-family: "Playfair Display", serif !important;
+    font-optical-sizing: auto !important;
+    font-size: 4rem !important;
+    line-height: 4.5rem !important;
+    font-style: normal !important;
+}
+
+.text-h3 {
+    font-family: "Playfair Display", serif !important;
+    font-optical-sizing: auto !important;
+    font-size: 3rem !important;
+    line-height: 4rem !important;
+    font-style: normal !important;
+}
+
+a {
+    color: #1075bc;
+    text-decoration: none;
+}
