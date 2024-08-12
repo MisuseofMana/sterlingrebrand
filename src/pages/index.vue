@@ -60,10 +60,12 @@
     <v-col>
       <v-card class="pa-10" elevation="5">
         <h2 class="text-h2 mb-5">Why Choose Sterling Insurance?</h2>
-        <ul class="text-body-1 ml-10">
+        <ul class="text-body-1 ml-10 mb-5">
           <li><strong>Personalized Service</strong>: We educate you about what Medicare covers and how to manage potential expenses.</li>
           <li><strong>Wide Range of Carriers</strong>: We represent Anthem, Aetna, United Healthcare, Mutual of Omaha, IU Health, and more, giving you the flexibility to find the right coverage.</li>
         </ul>
+        <p class="text-body-1">Sterling Insurance is a boutique health insurance agency serving Greenwood, We specialize in assisting seniors with tailored Medicare programs to suit their unique needs. We provide expert guidance to ensure our clients understand their options so they can make informed decisions. Our dedicated team helps seniors prepare for healthcare expenses not covered by Medicare, offering comprehensive solutions for a worry-free future.</p>
+        <p class="text-body-1">Trust Sterling Insurance for personalized support and peace of mind when planning your retirement healthcare.</p>
       </v-card>
     </v-col>
   </v-row>
@@ -83,23 +85,67 @@
     </v-col>
   </v-row>
 
-  <v-row>
-    <v-col>
-      <v-card class="pa-10" elevation="5">
-        <h2 class="text-h2 mb-5">Facebook Posts</h2>
-        <div class="d-flex mb-5" v-for="n in 3">
-          <v-card
-          height="200"
-          width="33%"
-          color="yellow"
-          />
-          <p class="pa-10">Facebook info here</p>
-        </div>
-      </v-card>
+  <v-card v-if="!noPostsFound" class="pa-10 mb-10" elevation="5">
+  <h2 class="text-h2 mb-8">More From Our Facebook Page</h2>
+  <v-row v-for="post in posts" :key="post.id">
+    <v-col cols="4">
+      <v-img :src="post?.mediaLink"></v-img>
     </v-col>
-  </v-row>
+    <v-col cols="8">
+        <!-- <pre>{{ posts[0] }}</pre> -->
+        <div>
+          <h3 class="text-h2 mb-3">{{ post?.createdAt }}</h3>
+          <p class="text-body-1 mb-2">{{post?.message}}</p>
+          <a :href="post?.postUrl" target="_blank" class="text-body-1">See more...</a>
+        </div>
+      </v-col>
+    </v-row>
+  </v-card>
+
+      <v-card link="https://www.facebook.com/healthcareinnovatorsindy" class="pa-10 text-center d-flex justify-center" color="info" elevation="5">
+       <p class="text-body-1 mr-5">
+         Tap here to visit us on Facebook.
+       </p>
+       <v-icon size="50px">mdi-facebook</v-icon>
+      </v-card>
 </template>
 
 <script setup>
-  //
+import { ref, onMounted } from 'vue'
+ const posts = ref([])
+ const noPostsFound = ref(false)
+ onMounted(() => {
+  fetchFacebookPosts()
+ })
+ const formattedDate = (dateString) => {
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  const date = new Date(dateString);
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+  const day = String(date.getDate()).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${months[month -1]}, ${day}, ${year}`;
+}
+
+const fetchFacebookPosts = async () => {
+  try {
+    const accessToken = import.meta.env.VITE_FB_AUTH
+    const pageId = 'healthcareinnovatorsindy'
+    const response = await fetch(`https://graph.facebook.com/${pageId}/posts?fields=message,created_time,attachments{media_type,media,url}&limit=5&access_token=${accessToken}`)
+    const data = await response.json()
+    console.log(data)
+    posts.value = data.data.filter(item => item.message).map(post => {
+      return {
+        createdAt: formattedDate(post.created_time),
+        type: post?.attachments?.data[0]?.media_type,
+        mediaLink: post?.attachments?.data[0]?.media?.image?.src,
+        postUrl : post?.attachments?.data[0]?.url,
+        ...post
+      }
+    })
+  }
+  catch (error) {
+    noPostsFound.value = true
+    console.error(error)
+  }
+}
 </script>
