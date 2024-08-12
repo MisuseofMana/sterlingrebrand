@@ -53,6 +53,7 @@
   <v-row class="mb-10">
     <v-col cols="12">
       <v-parallax scale=".8" src="/front.jpeg?url"></v-parallax>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d416.54441826982446!2d-86.11292661201044!3d39.61381789969532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886b5d3dc3b0ec9f%3A0x3e739445f84bae9e!2sSterling%20Insurance%20Inc!5e0!3m2!1sen!2sus!4v1723429037607!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </v-col>
   </v-row>
   
@@ -87,11 +88,11 @@
 
   <v-card v-if="!noPostsFound" class="pa-10 mb-10" elevation="5">
   <h2 class="text-h2 mb-8">More From Our Facebook Page</h2>
-  <v-row v-for="post in posts" :key="post.id">
-    <v-col cols="4">
+  <v-row v-for="post in posts" :key="post.id" class="mb-10 mb-md-10">
+    <v-col cols="12" md="4">
       <v-img :src="post?.mediaLink"></v-img>
     </v-col>
-    <v-col cols="8">
+    <v-col cols="12" md="8">
         <!-- <pre>{{ posts[0] }}</pre> -->
         <div>
           <h3 class="text-h2 mb-3">{{ post?.createdAt }}</h3>
