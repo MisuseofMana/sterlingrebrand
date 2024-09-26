@@ -12,20 +12,20 @@
 
   <v-row class="mb-10">
     <v-col cols="12" class="text-center">  
-      <p class="text-body-1"><span class="text-decoration-underline">Your</span> <strong>Independent Insurance</strong> located in <strong>Greenwood, Indiana</strong></p>
+      <p class="text-body-1"><span class="text-decoration-underline">Your</span> <strong>independent insurance</strong> solution located in <strong>Greenwood, Indiana</strong>.</p>
     </v-col>
   </v-row>
 
   <v-card class="pa-10 mb-10" elevation="5">
   <v-row>
       <v-col cols="12" md="7">
-          <h2 class="text-h2 mb-5">Just Ask for Tom.</h2>
+          <h2 class="text-h2 mb-5">Just ask for Tom.</h2>
           <p class="text-body-1">At Sterling Insurance, we know that one size doesn't fit all. We meet face-to-face to discuss your unique Medicare plan options. Our goal is to help you find the best plan for your medical, financial, and retirement needs.</p>
     </v-col>
     <v-spacer/>
     <v-col cols="12" sm="8" md="5" class="offset-sm-2 offset-md-0">
       <v-img
-        src="/tom-cutout.png?url"
+        src="/tom-headshot.png?url"
         min-width="100px"
         >
       </v-img>
@@ -107,7 +107,7 @@
        <p class="text-body-1 mr-5">
          Tap here to visit us on Facebook.
        </p>
-       <v-icon size="50px">mdi-facebook</v-icon>
+       <v-icon size="39px">mdi-facebook</v-icon>
       </v-card>
 </template>
 
