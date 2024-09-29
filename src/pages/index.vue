@@ -65,7 +65,7 @@
           <li><strong>Personalized Service</strong>: We educate you about what Medicare covers and how to manage potential expenses.</li>
           <li><strong>Wide Range of Carriers</strong>: We represent Anthem, Aetna, United Healthcare, Mutual of Omaha, IU Health, and more, giving you the flexibility to find the right coverage.</li>
         </ul>
-        <p class="text-body-1 mb-2">Sterling Insurance is a boutique health insurance agency serving Greenwood, We specialize in assisting seniors with tailored Medicare programs to suit their unique needs. We provide expert guidance to ensure our clients understand their options so they can make informed decisions. Our dedicated team helps seniors prepare for healthcare expenses not covered by Medicare, offering comprehensive solutions for a worry-free future.</p>
+        <p class="text-body-1 mb-4">Sterling Insurance is a boutique health insurance agency serving Greenwood, We specialize in assisting seniors with tailored Medicare programs to suit their unique needs. We provide expert guidance to ensure our clients understand their options so they can make informed decisions. Our dedicated team helps seniors prepare for healthcare expenses not covered by Medicare, offering comprehensive solutions for a worry-free future.</p>
         <p class="text-body-1">Trust Sterling Insurance for personalized support and peace of mind when planning your retirement healthcare.</p>
       </v-card>
     </v-col>
